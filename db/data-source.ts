@@ -1,12 +1,13 @@
+import { DATABASE_CONFIG } from "src/constant";
 import { DataSource, DataSourceOptions } from "typeorm";
-
+console.log(DATABASE_CONFIG, "DATABASE_CONFIG");
 export const dataSourceOptions: DataSourceOptions = {
     type: 'mysql',
-    host: 'localhost',
-    port: 3306,
-    username: 'root',
-    password: 'chien401',
-    database: 'blog-nestjs',
+    host: DATABASE_CONFIG.HOST,
+    port: parseInt(DATABASE_CONFIG.PORT, 10),
+    username: DATABASE_CONFIG.USERNAME,
+    password: DATABASE_CONFIG.PASSWORD,
+    database: DATABASE_CONFIG.DATABASE,
     entities: ['dist/**/*.entity.js'],
     migrations: ['dist/db/migrations/*.js'],
     migrationsTableName: 'migrations_typeorm',

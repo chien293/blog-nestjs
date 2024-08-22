@@ -6,6 +6,7 @@ import { User } from 'src/user/entity/user.entity';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import * as dotenv from 'dotenv';
+import { JWT_CONST } from 'src/constant';
 dotenv.config();
 
 @Module({
@@ -13,7 +14,7 @@ dotenv.config();
     TypeOrmModule.forFeature([User]),
     JwtModule.register({
       global: true,
-      secret: process.env.REFRESH_TOKEN_SECRET,
+      secret: JWT_CONST.ACCESS_SECRET,
       signOptions: { expiresIn: '1h' },
     }),
     ConfigModule
