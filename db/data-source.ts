@@ -1,6 +1,6 @@
 import { DATABASE_CONFIG } from "src/constant";
 import { DataSource, DataSourceOptions } from "typeorm";
-console.log(DATABASE_CONFIG, "DATABASE_CONFIG");
+
 export const dataSourceOptions: DataSourceOptions = {
     type: 'mysql',
     host: DATABASE_CONFIG.HOST,
